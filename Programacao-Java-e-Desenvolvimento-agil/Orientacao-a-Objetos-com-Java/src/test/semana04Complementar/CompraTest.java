@@ -18,6 +18,6 @@ public class CompraTest {
 	
 	@Test
 	public void valorTotal() {
-		assertEquals(new Double(0.0), compra.total());
+		assertEquals(new Double(10.0), compra.total());
 	}
 }
