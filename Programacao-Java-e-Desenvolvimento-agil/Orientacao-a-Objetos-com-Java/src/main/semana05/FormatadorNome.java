@@ -2,7 +2,7 @@ package main.semana05;
 
 public interface FormatadorNome {
 
-	public String informal(String nome, String sobrenome);
+	public String informal(String nome);
 	
 	public String respeitoso(String sobrenome, Sexo sexo);
 	

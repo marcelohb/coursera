@@ -2,7 +2,7 @@ package main.semana05;
 
 public enum Sexo {
 	
-	MASCULINO("M", "Sr"), FEMININO("F", "Sra");
+	MASCULINO("M", "Sr."), FEMININO("F", "Sra.");
 	
 	private String sexo;
 	private String tratamento; 
@@ -17,6 +17,6 @@ public enum Sexo {
 	}
 	
 	public String tratamento() {
-		return null;
+		return tratamento;
 	}
 }
