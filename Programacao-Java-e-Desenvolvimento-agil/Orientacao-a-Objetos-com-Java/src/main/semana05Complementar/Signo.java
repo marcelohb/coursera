@@ -1,0 +1,6 @@
+package main.semana05Complementar;
+
+public enum Signo {
+	
+	ARIES, TOURO, GEMEOS, CANCER, LEAO, VIRGEM, LIBRA, ESCORPIAO, SAGITARIO, CAPRICORNIO, AQUARIO, PEIXES
+}
