@@ -34,7 +34,7 @@ public class MecanicaDoJogoDificil implements MecanicaDoJogo {
 	}
 
 	@Override
-	public String novaPalavra() {
+	public String novaPalavra(ModoDeJogo modo) {
 		// TODO Auto-generated method stub
 		return null;
 	}

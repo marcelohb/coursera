@@ -11,13 +11,13 @@ import java.util.stream.Stream;
 public class Arquivo {
 	
 	private String caminho;
-	Stream<String> linhas;
+	private Stream<String> linhas;
 	
 	public Arquivo(String caminho) {
 		this.caminho = caminho;
 	}
 
-	List<String> palavras = new ArrayList<String>();
+	private List<String> palavras = new ArrayList<String>();
 
 	public List<String> retornarPalavras() {
 		Path caminho = Paths.get(this.caminho);

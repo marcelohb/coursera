@@ -7,4 +7,9 @@ public class EmbaralhadorInvertido implements Embaralhador {
 		return null;
 	}
 
+	@Override
+	public String novaPalavra() {
+		return null;
+	}
+
 }
