@@ -15,7 +15,7 @@ public class MecanicaDoJogoMedioTest {
 	MecanicaDoJogo mf;
 	BancoDePalavras bp;
 	String palavraOriginal = "AMO";
-	String palavraInvertida = "UE";
+	String palavraInvertida = "EU";
 	
 	@Before
 	public void setUp() {
@@ -31,6 +31,7 @@ public class MecanicaDoJogoMedioTest {
 	
 	@Test
 	public void primeiraPalavraInvertida() {
+		mf.reiniciar();
 		String embaralhada = mf.novaPalavra();
 		assertEquals(palavraInvertida, embaralhada);
 	}
@@ -39,22 +40,22 @@ public class MecanicaDoJogoMedioTest {
 	public void acertarPrimeiraInveterSegunda() {
 		mf.reiniciar();
 		String embaralhada = mf.novaPalavra();
-		assertEquals("UE", embaralhada);
+		assertEquals(palavraInvertida, embaralhada);
 		mf.acertouPalavra();
 		embaralhada = mf.novaPalavra();
-		assertEquals("UT", embaralhada);
+		assertEquals("TU", embaralhada);
 	}
 	
 	@Test
 	public void inveterTerceira() {
 		mf.reiniciar();
 		String embaralhada = mf.novaPalavra();
-		assertEquals("UE", embaralhada);
+		assertEquals(palavraInvertida, embaralhada);
 		mf.acertouPalavra();
 		embaralhada = mf.novaPalavra();
 		mf.acertouPalavra();
 		embaralhada = mf.novaPalavra();
-		assertEquals("SELE", embaralhada);
+		assertEquals("EELS", embaralhada);
 	}
 	
 	@Test
@@ -83,7 +84,7 @@ public class MecanicaDoJogoMedioTest {
 		embaralhada = mf.novaPalavra();
 		mf.respostaErrada();
 		embaralhada = mf.novaPalavra();
-		assertEquals("UE", embaralhada);
+		assertEquals(palavraInvertida, embaralhada);
 		assertTrue(mf.podeTentarNovamente());
 	}
 	
@@ -98,24 +99,23 @@ public class MecanicaDoJogoMedioTest {
 	}
 	
 	@Test
-	public void pontuazaoFinalUmAcerto() {
+	public void pontuacaoFinalUmAcerto() {
 		mf.reiniciar();
 		mf.acertouPalavra();
 		assertEquals(new Double(1.0), mf.pontuacaoFinal());
 	}
 	
 	@Test
-	public void pontuazaoUmAcertoUmErro() {
+	public void pontuacaoUmAcertoUmErro() {
 		mf.reiniciar();
 		mf.acertouPalavra();
 		mf.respostaErrada();
-		assertEquals(new Double(0.5), mf.pontuacaoFinal());
+		assertEquals(new Double(0.0), mf.pontuacaoFinal());
 	}
 	
 	@Test
 	public void fimDeJogoPorErro() {
 		mf.reiniciar();
-		mf.respostaErrada();
 		mf.respostaErrada();
 		mf.respostaErrada();
 		mf.respostaErrada();

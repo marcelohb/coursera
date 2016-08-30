@@ -97,14 +97,14 @@ public class MecanicaDoJogoFacilTest {
 	}
 	
 	@Test
-	public void pontuazaoFinalUmAcerto() {
+	public void pontuacaoFinalUmAcerto() {
 		mf.reiniciar();
 		mf.acertouPalavra();
 		assertEquals(new Double(1.0), mf.pontuacaoFinal());
 	}
 	
 	@Test
-	public void pontuazaoUmAcertoUmErro() {
+	public void pontuacaoUmAcertoUmErro() {
 		mf.reiniciar();
 		mf.acertouPalavra();
 		mf.respostaErrada();

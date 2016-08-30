@@ -5,8 +5,13 @@ import main.br.com.coursera.util.ModoDeJogo;
 public class EmbaralhadorFabrica {
 
 	public Embaralhador novoEmbaralhador(ModoDeJogo modo) {
-		if (modo.equals(ModoDeJogo.FACIL)) {
+		switch (modo) {
+		case FACIL:
 			return new EmbaralhadorInvertido();
+		case MEDIO:
+			return new EmbaralhadorAlfabetico();
+		default:
+			break;
 		}
 		return null;
 	}

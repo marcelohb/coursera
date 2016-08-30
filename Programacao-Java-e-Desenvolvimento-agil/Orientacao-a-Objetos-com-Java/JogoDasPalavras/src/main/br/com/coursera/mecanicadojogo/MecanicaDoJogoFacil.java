@@ -64,6 +64,7 @@ public class MecanicaDoJogoFacil implements MecanicaDoJogo {
 	public void reiniciar() {
 		BancoDePalavras.palavraAtual = 0;
 		tentativas = 5;
+		pontuacao = 0.0;
 	}
 	
 	@Override
