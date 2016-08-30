@@ -10,6 +10,8 @@ public class EmbaralhadorFabrica {
 			return new EmbaralhadorInvertido();
 		case MEDIO:
 			return new EmbaralhadorAlfabetico();
+		case DIFICIL:
+			return new EmbaralhadorRandomico();
 		default:
 			break;
 		}
