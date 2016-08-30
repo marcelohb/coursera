@@ -9,7 +9,7 @@ public class BancoDePalavras {
 	private List<String> palavras;
 
 	public BancoDePalavras() {
-		Arquivo arq = new Arquivo("src/PALAVRAS.txt");
+		Arquivo arq = new Arquivo("src/PALAVRAS-TEST.txt");
 		palavras = arq.retornarPalavras();
 		ultimaPalavra = palavras.size();
 	}
@@ -24,7 +24,7 @@ public class BancoDePalavras {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		return "VAZIO";
+		return null;
 	}
 
 }

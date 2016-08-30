@@ -1,12 +1,13 @@
 package test.br.com.coursera.mecanicadojogo;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertTrue;
 
 import org.junit.Before;
 import org.junit.Test;
 
 import main.br.com.coursera.mecanicadojogo.MecanicaDoJogo;
-import main.br.com.coursera.mecanicadojogo.MecanicaDoJogoFacil;
 import main.br.com.coursera.mecanicadojogo.MecanicaDoJogoMedio;
 import main.br.com.coursera.util.BancoDePalavras;
 
@@ -41,7 +42,7 @@ public class MecanicaDoJogoMedioTest {
 		mf.reiniciar();
 		String embaralhada = mf.novaPalavra();
 		assertEquals(palavraInvertida, embaralhada);
-		mf.acertouPalavra();
+		mf.acertouPalavra("EU");
 		embaralhada = mf.novaPalavra();
 		assertEquals("TU", embaralhada);
 	}
@@ -51,9 +52,9 @@ public class MecanicaDoJogoMedioTest {
 		mf.reiniciar();
 		String embaralhada = mf.novaPalavra();
 		assertEquals(palavraInvertida, embaralhada);
-		mf.acertouPalavra();
+		mf.acertouPalavra("EU");
 		embaralhada = mf.novaPalavra();
-		mf.acertouPalavra();
+		mf.acertouPalavra("TU");
 		embaralhada = mf.novaPalavra();
 		assertEquals("EELS", embaralhada);
 	}
@@ -101,14 +102,14 @@ public class MecanicaDoJogoMedioTest {
 	@Test
 	public void pontuacaoFinalUmAcerto() {
 		mf.reiniciar();
-		mf.acertouPalavra();
+		mf.acertouPalavra("EU");
 		assertEquals(new Double(1.0), mf.pontuacaoFinal());
 	}
 	
 	@Test
 	public void pontuacaoUmAcertoUmErro() {
 		mf.reiniciar();
-		mf.acertouPalavra();
+		mf.acertouPalavra("EU");
 		mf.respostaErrada();
 		assertEquals(new Double(0.0), mf.pontuacaoFinal());
 	}
@@ -126,9 +127,9 @@ public class MecanicaDoJogoMedioTest {
 	@Test
 	public void fimDeJogoPorAcerto() {
 		mf.reiniciar();
-		mf.acertouPalavra();
-		mf.acertouPalavra();
-		mf.acertouPalavra();
+		mf.acertouPalavra("EU");
+		mf.acertouPalavra("TU");
+		mf.acertouPalavra("ELES");
 		assertTrue(mf.fimDeJogo());
 		assertEquals(new Double(3.0), mf.pontuacaoFinal());
 	}

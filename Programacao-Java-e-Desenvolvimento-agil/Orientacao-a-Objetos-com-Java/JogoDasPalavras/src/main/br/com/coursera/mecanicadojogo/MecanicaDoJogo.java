@@ -9,7 +9,7 @@ public interface MecanicaDoJogo {
 	public Double pontuacaoFinal();
 	public ModoDeJogo modo();
 	public String novaPalavra();
-	public boolean acertouPalavra();
+	public boolean acertouPalavra(String palavra);
 	public void reiniciar();
 	public void respostaErrada();
 	

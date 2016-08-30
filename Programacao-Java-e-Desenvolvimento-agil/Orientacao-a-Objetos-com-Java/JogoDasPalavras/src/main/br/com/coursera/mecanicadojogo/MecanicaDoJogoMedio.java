@@ -15,6 +15,7 @@ public class MecanicaDoJogoMedio implements MecanicaDoJogo {
 		bp = new BancoDePalavras();
 		tentativas = 4;
 		pontuacao = 0.0;
+		this.reiniciar();
 	}
 
 	@Override
@@ -27,10 +28,15 @@ public class MecanicaDoJogoMedio implements MecanicaDoJogo {
 	}
 
 	@Override
-	public boolean acertouPalavra() {
-		BancoDePalavras.palavraAtual++;
-		pontuacao += 1.0;
-		return false;
+	public boolean acertouPalavra(String palavra) {
+		if (palavra.toUpperCase().equals(bp.proximaPalavra())) {
+			BancoDePalavras.palavraAtual++;
+			pontuacao += 1.0;
+			return true;
+		} else {
+			this.respostaErrada();
+			return false;
+		}
 	}
 
 	@Override

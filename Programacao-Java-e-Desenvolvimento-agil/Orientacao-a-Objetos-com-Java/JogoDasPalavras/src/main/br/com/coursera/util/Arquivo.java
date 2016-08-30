@@ -23,7 +23,7 @@ public class Arquivo {
 		Path caminho = Paths.get(this.caminho);
 		try {
 			linhas = Files.lines(caminho);
-			linhas.forEach(c -> palavras.add(c));
+			linhas.forEach(c -> palavras.add(c.toUpperCase()));
 		} catch (IOException e) {
 			e.printStackTrace();
 		} finally {
