@@ -23,9 +23,9 @@ public class MecanicaDoJogoMedio implements MecanicaDoJogo {
 	}
 
 	@Override
-	public int pontuacaoFinal() {
+	public Double pontuacaoFinal() {
 		// TODO Auto-generated method stub
-		return 0;
+		return 0.0;
 	}
 
 	@Override
@@ -34,9 +34,21 @@ public class MecanicaDoJogoMedio implements MecanicaDoJogo {
 	}
 
 	@Override
-	public String novaPalavra(ModoDeJogo modo) {
-		// TODO Auto-generated method stub
+	public String novaPalavra() {
+		
 		return null;
+	}
+
+	@Override
+	public void reiniciar() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void respostaErrada() {
+		// TODO Auto-generated method stub
+		
 	}
 
 }

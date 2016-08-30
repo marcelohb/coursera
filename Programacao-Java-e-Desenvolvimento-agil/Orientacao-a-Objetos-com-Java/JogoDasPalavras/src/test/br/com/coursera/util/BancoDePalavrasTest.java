@@ -11,8 +11,8 @@ public class BancoDePalavrasTest {
 	@Test
 	public void alterarPalavras() {
 		String palavraAtual = "EU";
-		BancoDePalavras partida = new BancoDePalavras();
-		assertEquals(palavraAtual, partida.proximaPalavra());
+		BancoDePalavras bp = new BancoDePalavras();
+		assertEquals(palavraAtual, bp.proximaPalavra());
 	}
 
 }

@@ -6,9 +6,11 @@ public interface MecanicaDoJogo {
 	
 	public boolean fimDeJogo();
 	public boolean podeTentarNovamente();
-	public int pontuacaoFinal();
+	public Double pontuacaoFinal();
 	public ModoDeJogo modo();
-	public String novaPalavra(ModoDeJogo modo);
+	public String novaPalavra();
 	public boolean acertouPalavra();
+	public void reiniciar();
+	public void respostaErrada();
 	
 }

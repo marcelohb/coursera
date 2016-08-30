@@ -7,6 +7,7 @@ import org.junit.Test;
 
 import main.br.com.coursera.mecanicadojogo.MecanicaDoJogo;
 import main.br.com.coursera.mecanicadojogo.MecanicaDoJogoFabrica;
+import main.br.com.coursera.util.BancoDePalavras;
 import main.br.com.coursera.util.ModoDeJogo;
 
 public class PrincipalTest {
@@ -21,8 +22,9 @@ public class PrincipalTest {
 	@Test
 	public void novoJogoVazio() {
 		MecanicaDoJogo jogoFacil = fabrica.novoJogo();
+		BancoDePalavras bp = new BancoDePalavras();
 		assertEquals(jogoFacil.modo(), ModoDeJogo.FACIL);
-		assertEquals("UE", jogoFacil.novaPalavra(ModoDeJogo.FACIL));
+		assertEquals("UE", jogoFacil.novaPalavra());
 	}
 
 }

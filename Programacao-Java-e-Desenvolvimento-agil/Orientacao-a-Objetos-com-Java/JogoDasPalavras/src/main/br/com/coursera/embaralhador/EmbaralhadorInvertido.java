@@ -4,7 +4,8 @@ public class EmbaralhadorInvertido implements Embaralhador {
 
 	@Override
 	public String embaralhar(String palavra) {
-		return null;
+		StringBuilder sb = new StringBuilder(palavra);
+		return sb.reverse().toString();
 	}
 
 	@Override
