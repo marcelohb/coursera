@@ -84,12 +84,50 @@ public class PrincipalTest {
 		assertFalse(jogo.fimDeJogo());
 		assertTrue(jogo.acertouPalavra("TU"));
 		assertEquals(new Double(1.0), jogo.pontuacaoFinal());
-		assertEquals("eleS", jogo.novaPalavra());
-//		assertFalse(jogo.acertouPalavra("ELES"));
-//		assertFalse(jogo.acertouPalavra("NOS"));
-//		assertFalse(jogo.acertouPalavra("VOS"));
-//		assertFalse(jogo.acertouPalavra("ABACAXI"));
+		assertTrue(jogo.acertouPalavra("ELES"));
+		assertTrue(jogo.acertouPalavra("NOS"));
+		assertTrue(jogo.acertouPalavra("VOS"));
+		assertTrue(jogo.acertouPalavra("ABACAXI"));
 		assertEquals(new Double(5.0), jogo.pontuacaoFinal());
+		assertTrue(jogo.fimDeJogo());
+	}
+	
+	@Test
+	public void perderJogoDificil() {
+		MecanicaDoJogo jogo = fabrica.novoJogo(ModoDeJogo.DIFICIL);
+		assertEquals(jogo.modo(), ModoDeJogo.DIFICIL);
+		assertTrue(jogo.acertouPalavra("EU"));
+		assertFalse(jogo.acertouPalavra("xx"));
+		assertEquals(new Double(0.0), jogo.pontuacaoFinal());
+		assertFalse(jogo.fimDeJogo());
+		assertTrue(jogo.acertouPalavra("TU"));
+		assertEquals(new Double(1.0), jogo.pontuacaoFinal());
+		assertFalse(jogo.fimDeJogo());
+		assertTrue(jogo.acertouPalavra("ELES"));
+		assertEquals(new Double(2.0), jogo.pontuacaoFinal());
+		assertFalse(jogo.acertouPalavra("xx"));
+		assertFalse(jogo.acertouPalavra("xx"));
+		assertEquals(new Double(0.0), jogo.pontuacaoFinal());
+		assertTrue(jogo.fimDeJogo());
+	}
+	
+	@Test
+	public void ganharJogoDificil() {
+		MecanicaDoJogo jogo = fabrica.novoJogo(ModoDeJogo.DIFICIL);
+		assertEquals(jogo.modo(), ModoDeJogo.DIFICIL);
+		assertTrue(jogo.acertouPalavra("EU"));
+		assertFalse(jogo.acertouPalavra("xx"));
+		assertEquals(new Double(0.0), jogo.pontuacaoFinal());
+		assertFalse(jogo.fimDeJogo());
+		assertTrue(jogo.acertouPalavra("TU"));
+		assertEquals(new Double(1.0), jogo.pontuacaoFinal());
+		assertFalse(jogo.fimDeJogo());
+		assertTrue(jogo.acertouPalavra("ELES"));
+		assertFalse(jogo.acertouPalavra("xx"));
+		assertTrue(jogo.acertouPalavra("NOS"));
+		assertTrue(jogo.acertouPalavra("VOS"));
+		assertTrue(jogo.acertouPalavra("ABACAXI"));
+		assertEquals(new Double(4.0), jogo.pontuacaoFinal());
 		assertTrue(jogo.fimDeJogo());
 	}
 
