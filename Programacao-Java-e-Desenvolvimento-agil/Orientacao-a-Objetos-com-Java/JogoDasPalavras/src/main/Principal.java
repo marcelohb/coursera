@@ -8,8 +8,6 @@ import main.br.com.coursera.util.Apresentacao;
 import main.br.com.coursera.util.ModoDeJogo;
 
 public class Principal {
-	
-	private static String palavras;
 
 	public static void main(String[] args) {
 		
@@ -50,6 +48,7 @@ public class Principal {
 				e.printStackTrace();
 				System.exit(0);
 			}
+			
 		}
 		a.vamosLa();
 		while (!m.fimDeJogo()) {
@@ -60,6 +59,7 @@ public class Principal {
 		if (!m.podeTentarNovamente()) {
 			a.perdeu();
 		}
+		sc.close();
 		a.pontuacao(m.pontuacaoFinal());
 		a.fimDeJogo();
 	}
