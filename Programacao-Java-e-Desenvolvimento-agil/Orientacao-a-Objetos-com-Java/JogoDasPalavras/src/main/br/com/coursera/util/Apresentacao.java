@@ -34,7 +34,7 @@ public class Apresentacao {
 	
 	public void vamosLa() {
 		System.out.println("/****************************************/");
-		System.out.println("/***********V A M O S  L Á **************/");
+		System.out.println("/********** V A M O S  L Á **************/");
 		System.out.println("/****************************************/");
 	}
 	
@@ -71,11 +71,22 @@ public class Apresentacao {
 	}
 
 	public void pontuacao(Double pontos) {
-		pontos.toString().length();
+		int ed=19,dif=0;
+		ed -= new Float(pontos.toString().length()/2).intValue();
+		String e = "*";
+		String d = "*";
+		for (int i = 0; i<ed; i++) {
+			e += "*"; d += "*";
+		}
+		if ((e.length()+pontos.toString().length()+d.length()) > 38) {
+			dif = (e.length()+pontos.toString().length()+d.length())-38;
+			d = d.substring(0,d.length()-dif);
+		}
+		
 		System.out.println("/****************************************/");
 		System.out.println("/**   P O N T U A C A O    F I N A L   **/");
 		System.out.println("/****************************************/");
-		System.out.println("/***************** " + pontos + " *****************/");
+		System.out.println("/*" + e + pontos + d + "*/");
 	}
 
 }
