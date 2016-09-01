@@ -24,27 +24,30 @@ public class Principal {
 		a.escolherJogo();
 		Scanner sc = new Scanner(System.in);
 		inicioDeJogo = sc.nextLine();
+		jogo = new MecanicaDoJogoFabrica();
 		if ("1".equals(inicioDeJogo)) {
-			jogo = new MecanicaDoJogoFabrica();
 			m = jogo.novoJogo();
 		} else {
 			a.escolherModoDeJogo();
 			try {
-				modoDeJogo = Integer.valueOf(sc.nextLine());
+				modoDeJogo = Integer.valueOf(sc.nextLine()).intValue();
 				switch (modoDeJogo) {
 				case 1:
 					m = jogo.novoJogo(ModoDeJogo.FACIL);
 					break;
 				case 2:
 					m = jogo.novoJogo(ModoDeJogo.MEDIO);
+					break;
 				case 3:
 					m = jogo.novoJogo(ModoDeJogo.DIFICIL);
+					break;
 				default:
-					System.out.println("OPÇÃO INVÁLIDA");
+					System.out.println("OPÇÃO INVÁLIDA: " + modoDeJogo);
 					System.exit(0);
 				}
 			} catch (Exception e) {
-				System.out.println("OPÇÃO INVÁLIDA");
+				System.out.println("ERRO: OPÇÃO INVÁLIDA");
+				e.printStackTrace();
 				System.exit(0);
 			}
 		}
