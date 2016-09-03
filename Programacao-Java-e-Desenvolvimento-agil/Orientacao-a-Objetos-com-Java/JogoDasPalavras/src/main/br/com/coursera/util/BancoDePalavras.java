@@ -9,9 +9,13 @@ public class BancoDePalavras {
 	private List<String> palavras;
 
 	public BancoDePalavras() {
-		Arquivo arq = new Arquivo("src/PALAVRAS-TEST.txt");
-		palavras = arq.retornarPalavras();
-		ultimaPalavra = palavras.size();
+		try {
+			Arquivo arq = new Arquivo("src/PALAVRAS.txt");
+			palavras = arq.retornarPalavras();
+			ultimaPalavra = palavras.size();
+		} catch (Exception e) {
+			System.out.println("Banco de palavras não encontrado.");
+		}
 	}
 	
 	public String proximaPalavra() {

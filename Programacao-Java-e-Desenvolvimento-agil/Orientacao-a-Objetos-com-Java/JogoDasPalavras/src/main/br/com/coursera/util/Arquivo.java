@@ -20,12 +20,14 @@ public class Arquivo {
 	private List<String> palavras = new ArrayList<String>();
 
 	public List<String> retornarPalavras() {
-		Path caminho = Paths.get(this.caminho);
 		try {
+			Path caminho = Paths.get(this.caminho);
 			linhas = Files.lines(caminho);
 			linhas.forEach(c -> palavras.add(c.toUpperCase()));
+		} catch (NoSuchFieldError ae) {
+			System.out.println("Problema na leitura do arquivo " + caminho);
 		} catch (IOException e) {
-			e.printStackTrace();
+			System.out.println("Problema com o arquivo: " + caminho);
 		} finally {
 			linhas.close();
 		}
