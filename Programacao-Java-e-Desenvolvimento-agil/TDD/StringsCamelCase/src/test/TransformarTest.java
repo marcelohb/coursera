@@ -31,7 +31,8 @@ public class TransformarTest {
 		for (char c : arrayDePalavras) {
 			
 			if (String.valueOf(c).matches("[A-Z]")) {
-				listaDePalavras.add(p);
+				if (p != null)
+					listaDePalavras.add(p);
 				p = null;
 			} 
 			if (p == null) {
