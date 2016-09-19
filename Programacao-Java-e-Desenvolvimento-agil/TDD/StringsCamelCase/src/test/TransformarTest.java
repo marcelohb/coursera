@@ -12,37 +12,23 @@ import java.util.regex.Pattern;
 import org.junit.Before;
 import org.junit.Test;
 
+import main.Transformar;
+
 public class TransformarTest {
 	
+	Transformar transformar;
 	String palavra;
-	char[] arrayDePalavras;
-	List<String> listaDePalavras;
 	
 	@Before
 	public void setUp() {
+		transformar = new Transformar();
 		palavra = "NomeCasa";
-		listaDePalavras = new ArrayList<>();
 	}
 
 	@Test
 	public void quebrarPalavra() {
-		arrayDePalavras = palavra.toCharArray();
-		String p = null;
-		for (char c : arrayDePalavras) {
-			
-			if (String.valueOf(c).matches("[A-Z]")) {
-				if (p != null)
-					listaDePalavras.add(p);
-				p = null;
-			} 
-			if (p == null) {
-				p = String.valueOf(c);
-			} else {
-				p += String.valueOf(c);
-			}
-		}
-		listaDePalavras.add(p);
-		assertEquals(2,listaDePalavras.size());
+		transformar.separarPalavras(palavra);
+		assertEquals(2,transformar.getListaDePalavras().size());
 	}
 
 }
