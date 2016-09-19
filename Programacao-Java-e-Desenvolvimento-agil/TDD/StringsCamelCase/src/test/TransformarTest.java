@@ -41,6 +41,13 @@ public class TransformarTest {
 		assertEquals("joao", transformar.getListaDePalavras().get(2));
 	}
 	
-	
+	@Test(expected=IllegalArgumentException.class)
+	public void naoPodeConterCaracteresEspeciais() {
+		palavra = "nomeCasa#Joao";
+		transformar.separarPalavras(palavra);
+		assertEquals("nome", transformar.getListaDePalavras().get(0));
+		assertEquals("casa", transformar.getListaDePalavras().get(1));
+		assertEquals("joao", transformar.getListaDePalavras().get(2));
+	}
 
 }

@@ -14,6 +14,7 @@ public class Transformar {
 	public void separarPalavras(String palavra) {
 		arrayDePalavras = palavra.toCharArray();
 		this.verificaSeIniciaComNumero();
+		this.verificaCaracteresEspeciais();
 		String p = null;
 		for (char c : arrayDePalavras) {
 			
@@ -35,10 +36,16 @@ public class Transformar {
 		return listaDePalavras;
 	}
 	
-	private boolean verificaSeIniciaComNumero() {
+	private void verificaSeIniciaComNumero() {
 		if (String.valueOf(arrayDePalavras[0]).matches("[0-9]"))
 			throw new IllegalArgumentException("Não pode iniciar com número");
-		return false;
+	}
+	
+	private void verificaCaracteresEspeciais() {
+		for (char c : arrayDePalavras) {
+			if (String.valueOf(c).matches("[^a-zA-Z]"))
+				throw new IllegalArgumentException("Não pode conter caracteres especiais");
+		}
 	}
 
 }
