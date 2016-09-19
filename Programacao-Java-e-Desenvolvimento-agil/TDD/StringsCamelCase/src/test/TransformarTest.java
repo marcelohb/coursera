@@ -2,13 +2,6 @@ package test;
 
 import static org.junit.Assert.assertEquals;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-import java.util.StringTokenizer;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
-
 import org.junit.Before;
 import org.junit.Test;
 
@@ -22,13 +15,13 @@ public class TransformarTest {
 	@Before
 	public void setUp() {
 		transformar = new Transformar();
-		palavra = "NomeCasa";
+		palavra = "NomeCasaAlimento";
 	}
 
 	@Test
 	public void quebrarPalavra() {
 		transformar.separarPalavras(palavra);
-		assertEquals(2,transformar.getListaDePalavras().size());
+		assertEquals(3,transformar.getListaDePalavras().size());
 	}
 	
 	@Test
@@ -36,6 +29,7 @@ public class TransformarTest {
 		transformar.separarPalavras(palavra);
 		assertEquals("nome", transformar.getListaDePalavras().get(0));
 		assertEquals("casa", transformar.getListaDePalavras().get(1));
+		assertEquals("alimento", transformar.getListaDePalavras().get(2));
 	}
 
 }
