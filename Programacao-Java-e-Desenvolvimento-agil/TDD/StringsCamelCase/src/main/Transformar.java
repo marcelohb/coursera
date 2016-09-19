@@ -13,6 +13,7 @@ public class Transformar {
 	}
 	public void separarPalavras(String palavra) {
 		arrayDePalavras = palavra.toCharArray();
+		this.verificaSeIniciaComNumero();
 		String p = null;
 		for (char c : arrayDePalavras) {
 			
@@ -32,6 +33,12 @@ public class Transformar {
 	
 	public List<String> getListaDePalavras() {
 		return listaDePalavras;
+	}
+	
+	private boolean verificaSeIniciaComNumero() {
+		if (String.valueOf(arrayDePalavras[0]).matches("[0-9]"))
+			throw new IllegalArgumentException("Não pode iniciar com número");
+		return false;
 	}
 
 }
