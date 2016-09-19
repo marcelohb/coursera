@@ -30,5 +30,12 @@ public class TransformarTest {
 		transformar.separarPalavras(palavra);
 		assertEquals(2,transformar.getListaDePalavras().size());
 	}
+	
+	@Test
+	public void conferirPalavras() {
+		transformar.separarPalavras(palavra);
+		assertEquals("nome", transformar.getListaDePalavras().get(0));
+		assertEquals("casa", transformar.getListaDePalavras().get(1));
+	}
 
 }

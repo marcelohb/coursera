@@ -27,7 +27,7 @@ public class Transformar {
 				p += String.valueOf(c);
 			}
 		}
-		listaDePalavras.add(p);
+		listaDePalavras.add(p.toLowerCase());
 	}
 	
 	public List<String> getListaDePalavras() {
