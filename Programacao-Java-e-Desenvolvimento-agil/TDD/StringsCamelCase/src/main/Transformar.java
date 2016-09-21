@@ -11,6 +11,7 @@ public class Transformar {
 	public Transformar() {
 		listaDePalavras = new ArrayList<>();
 	}
+	
 	public void separarPalavras(String palavra) {
 		arrayDePalavras = palavra.toCharArray();
 		verificaSeIniciaComNumero();

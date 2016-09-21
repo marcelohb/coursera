@@ -51,7 +51,7 @@ public class TransformarTest {
 	}
 	
 	@Test
-	public void separarSilabas() {
+	public void separarSiglasOuAcronimos() {
 		palavra = "nomeITANome";
 		transformar.separarPalavras(palavra);
 		assertEquals("nome", transformar.getListaDePalavras().get(0));
