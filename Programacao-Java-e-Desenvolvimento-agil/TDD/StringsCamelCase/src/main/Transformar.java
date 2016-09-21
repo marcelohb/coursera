@@ -15,17 +15,13 @@ public class Transformar {
 		arrayDePalavras = palavra.toCharArray();
 		verificaSeIniciaComNumero();
 		verificaCaracteresEspeciais();
-		String p = new String();
-		for (char c : arrayDePalavras) {
-			if (Character.isLowerCase(c)) {
-				p += String.valueOf(c);
+		for (String s : palavra.split("(?<=[a-z])(?=[A-Z])|(?<=[A-Z])(?=[A-Z][a-z]|(?=[0-9]))")){
+			if (ehSiglaOuAcronimo(s)) {
+				listaDePalavras.add(s);
 			} else {
-				if (!p.isEmpty())
-				listaDePalavras.add(p.toLowerCase());
-				p = String.valueOf(c);
+				listaDePalavras.add(s.toLowerCase());
 			}
 		}
-		listaDePalavras.add(p.toLowerCase());
 	}
 	
 	public List<String> getListaDePalavras() {
@@ -34,14 +30,24 @@ public class Transformar {
 	
 	private void verificaSeIniciaComNumero() {
 		if (String.valueOf(arrayDePalavras[0]).matches("[0-9]"))
-			throw new IllegalArgumentException("Não pode iniciar com número");
+			throw new IllegalArgumentException("Nao pode iniciar com numero");
 	}
 	
 	private void verificaCaracteresEspeciais() {
 		for (char c : arrayDePalavras) {
 			if (String.valueOf(c).matches("[^a-zA-Z0-9]"))
-				throw new IllegalArgumentException("Não pode conter caracteres especiais");
+				throw new IllegalArgumentException("Nao pode conter caracteres especiais");
 		}
 	}
+	
+	private boolean ehSiglaOuAcronimo(String sigla) {
+		char[] letras = sigla.toCharArray();
+		for (Character c : letras) {
+			if (Character.isLowerCase(c))
+				return false;
+		}
+		return true;
+	}
+	
 
 }

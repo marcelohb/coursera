@@ -41,17 +41,6 @@ public class TransformarTest {
 		assertEquals("joao", transformar.getListaDePalavras().get(2));
 	}
 	
-	@Test
-	public void numerosPodemEstarNoMeio() {
-		palavra = "nomeCasa10Joao";
-		transformar.separarPalavras(palavra);
-		assertEquals("nome", transformar.getListaDePalavras().get(0));
-		assertEquals("casa", transformar.getListaDePalavras().get(1));
-		assertEquals("1", transformar.getListaDePalavras().get(2));
-		assertEquals("0", transformar.getListaDePalavras().get(3));
-		assertEquals("joao", transformar.getListaDePalavras().get(4));
-	}
-	
 	@Test(expected=IllegalArgumentException.class)
 	public void naoPodeConterCaracteresEspeciais() {
 		palavra = "nomeCasa#Joao";
@@ -59,6 +48,16 @@ public class TransformarTest {
 		assertEquals("nome", transformar.getListaDePalavras().get(0));
 		assertEquals("casa", transformar.getListaDePalavras().get(1));
 		assertEquals("joao", transformar.getListaDePalavras().get(2));
+	}
+	
+	@Test
+	public void separarSilabas() {
+		palavra = "nomeITANome";
+		transformar.separarPalavras(palavra);
+		assertEquals("nome", transformar.getListaDePalavras().get(0));
+		assertEquals("ITA", transformar.getListaDePalavras().get(1));
+		assertEquals("nome", transformar.getListaDePalavras().get(2));
+		assertEquals(3,transformar.getListaDePalavras().size());
 	}
 
 }
