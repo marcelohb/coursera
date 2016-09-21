@@ -15,23 +15,14 @@ public class Transformar {
 		arrayDePalavras = palavra.toCharArray();
 		verificaSeIniciaComNumero();
 		verificaCaracteresEspeciais();
-		String p = null;
+		String p = new String();
 		for (char c : arrayDePalavras) {
-//			if (Character.isLowerCase(c) || Character.isUpperCase(arrayDePalavras[0])) {
-//				p += String.valueOf(c);
-//			} else {
-//				p += "";
-//				listaDePalavras.add(p.toLowerCase());
-//			}
-			if (Character.isUpperCase(c) || Character.isDigit(c)) {
-				if (p != null)
-					listaDePalavras.add(p.toLowerCase());
-				p = null;
-			}
-			if (p == null) {
-				p = String.valueOf(c);
-			} else {
+			if (Character.isLowerCase(c)) {
 				p += String.valueOf(c);
+			} else {
+				if (!p.isEmpty())
+				listaDePalavras.add(p.toLowerCase());
+				p = String.valueOf(c);
 			}
 		}
 		listaDePalavras.add(p.toLowerCase());
