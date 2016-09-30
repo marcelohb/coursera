@@ -2,6 +2,8 @@ package br.com.coursera;
 
 public interface ServicoRemoto {
 
-	ContaCorrente recuperarConta(String numeroDaConta);
+	public ContaCorrente recuperarConta(Integer numeroDaConta);
+	
+	public void persistirConta(ContaCorrente conta);
 
 }

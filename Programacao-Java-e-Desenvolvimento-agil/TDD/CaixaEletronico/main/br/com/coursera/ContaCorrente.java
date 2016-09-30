@@ -2,25 +2,39 @@ package br.com.coursera;
 
 public class ContaCorrente {
 	
-	private String _usuario = "marcelo";
-	private String _senha = "123";
-	private Double _saldo = 0.0;
+	private Integer numero;
+	private String usuario;
+	private String senha;
+	private Double saldo = 0.0;
 	
-	public ContaCorrente(String usuario, String senha) {
-		_usuario = usuario;
-		_senha = senha;
+	public ContaCorrente(int numero, String usuario, String senha) {
+		this.numero = numero;
+		this.usuario = usuario;
+		this.senha = senha;
+	}
+	
+	public Integer getNumero() {
+		return numero;
 	}
 
 	public String getUsuario() {
-		return _usuario;
+		return usuario;
 	}
 
 	public String getSenha() {
-		return _senha;
+		return senha;
 	}
 
 	public Double getSaldo() {
-		return _saldo;
+		return saldo;
+	}
+	
+	public void sacar(Double valor) {
+		this.saldo -= valor;
+	}
+	
+	public void depositar(Double valor) {
+		this.saldo += valor;
 	}
 
 }
