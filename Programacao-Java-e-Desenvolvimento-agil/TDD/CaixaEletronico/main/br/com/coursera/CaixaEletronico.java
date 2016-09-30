@@ -1,14 +1,16 @@
 package br.com.coursera;
 
+import java.util.HashMap;
+import java.util.Map;
+
 public class CaixaEletronico {
 	
-	private String _usuario = "marcelo";
-	private String _senha = "123";
+	public static Map<String, ContaCorrente> contas = new HashMap<>();
 
-	public String logar(String conta, String usuario, String senha) {
-//		ServicoRemoto servico = new ServicoRemoto;
-//		servico.recuperarConta(conta);
-		if (usuario.equals(this._usuario) && senha.equals(this._senha))
+	public String logar(String numeroDaConta, String usuario, String senha) {
+		ServicoRemoto servico = new MockServicoRemoto();
+		ContaCorrente conta = servico.recuperarConta(numeroDaConta);
+		if (usuario.equals(conta.getUsuario()) && senha.equals(conta.getSenha()))
 			return "Usuario Autenticado";
 		return "Nao foi possivel autenticar o usuario";
 	}
