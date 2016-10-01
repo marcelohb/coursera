@@ -8,6 +8,7 @@ public class CaixaEletronico {
 	
 	public static Map<Integer, ContaCorrente> contas = new HashMap<>();
 	ServicoRemoto servico = new MockServicoRemoto();
+	Hardware hardware = new MockHardware();
 	
 	public String logar(Integer numeroDaConta, String usuario, String senha) {
 		ContaCorrente conta = servico.recuperarConta(numeroDaConta);
@@ -19,7 +20,7 @@ public class CaixaEletronico {
 
 	public String saldo(Integer numeroDaConta) {
 		ContaCorrente conta = servico.recuperarConta(numeroDaConta);
-		return "O saldo é " + NumberFormat.getCurrencyInstance().format(conta.getSaldo());
+		return "O saldo ï¿½ " + NumberFormat.getCurrencyInstance().format(conta.getSaldo());
 	}
 
 	public String sacar(Integer numeroDaConta, Double valor) {
@@ -28,15 +29,27 @@ public class CaixaEletronico {
 			return "Saldo insuficiente";
 		}
 		conta.sacar(valor);
-		servico.persistirConta(conta);
-		return "Retire seu dinheiro";
+		try {
+			hardware.entregarDinheiro();
+			servico.persistirConta(conta);
+			return "Retire seu dinheiro";
+		} catch (Exception e) {
+			return e.getMessage();
+		}
+		
 	}
 
 	public String depositar(Integer numeroDaConta, Double valor) {
 		ContaCorrente conta = servico.recuperarConta(numeroDaConta);
 		conta.depositar(valor);
-		servico.persistirConta(conta);
-		return "Depósito recebido com sucesso";
+		try {
+			hardware.lerEnvelope();
+			servico.persistirConta(conta);
+			return "Depï¿½sito recebido com sucesso";
+		} catch (Exception e) {
+			return e.getMessage();
+		}
+		
 	}
 
 }
