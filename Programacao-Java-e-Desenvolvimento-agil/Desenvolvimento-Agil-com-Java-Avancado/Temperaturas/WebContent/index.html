@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Conversor de Temperaturas</title>
+</head>
+<body>
+	<h1>Conversor de Temperaturas</h1>
+	<p>Escolha o tipo de temperatura que deseja saber</p>
+	<form action="conversor" method="post">
+		<select name="tipo" id="tipo">
+			<option value="fahrenheit">Fahrenheit</option>
+			<option value="celsius">Celcius</option>
+		</select>
+		<br><br>
+		<label for="t1">Temperatura</label>
+		<input type="text" name="t1" />
+		<br><br>
+		<input type="submit" value="Calcular" />
+	</form>
+</body>
+</html>

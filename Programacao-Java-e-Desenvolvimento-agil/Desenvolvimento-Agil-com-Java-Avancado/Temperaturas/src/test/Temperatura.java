@@ -13,7 +13,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.support.ui.Select;
 
-public class TemperaturaCesius {
+public class Temperatura {
   private WebDriver driver;
   private String baseUrl;
   private StringBuffer verificationErrors = new StringBuffer();
@@ -27,7 +27,27 @@ public class TemperaturaCesius {
   }
 
   @Test
-  public void cemGraus() throws Exception {
+  public void zeroGrausCelsius() throws Exception {
+    driver.get(baseUrl + "/Temperaturas/");
+    new Select(driver.findElement(By.id("tipo"))).selectByVisibleText("Fahrenheit");
+    driver.findElement(By.name("t1")).clear();
+    driver.findElement(By.name("t1")).sendKeys("32");
+    driver.findElement(By.cssSelector("input[type=\"submit\"]")).click();
+    assertEquals("32.0 graus fahrenheit = 0.0 graus celsius", driver.findElement(By.cssSelector("pre")).getText());
+  }
+
+  @Test
+  public void cemGrausCelsius() throws Exception {
+    driver.get(baseUrl + "/Temperaturas/");
+    new Select(driver.findElement(By.id("tipo"))).selectByVisibleText("Fahrenheit");
+    driver.findElement(By.name("t1")).clear();
+    driver.findElement(By.name("t1")).sendKeys("212");
+    driver.findElement(By.cssSelector("input[type=\"submit\"]")).click();
+    assertEquals("212.0 graus fahrenheit = 100.0 graus celsius", driver.findElement(By.cssSelector("pre")).getText());
+  }
+
+  @Test
+  public void cemGrausFahrenheit() throws Exception {
     driver.get(baseUrl + "/Temperaturas/");
     new Select(driver.findElement(By.id("tipo"))).selectByVisibleText("Celcius");
     driver.findElement(By.name("t1")).clear();
@@ -37,7 +57,7 @@ public class TemperaturaCesius {
   }
 
   @Test
-  public void zeroGraus() throws Exception {
+  public void zeroGrausFahrenheit() throws Exception {
     driver.get(baseUrl + "/Temperaturas/");
     new Select(driver.findElement(By.id("tipo"))).selectByVisibleText("Celcius");
     driver.findElement(By.name("t1")).clear();
