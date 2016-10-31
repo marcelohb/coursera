@@ -23,6 +23,7 @@ public class PalavraTest {
 
   @Before
   public void setUp() throws Exception {
+	System.setProperty("webdriver.gecko.driver", "/home/marcelo/Projetos/lib/geckodriver");
     driver = new FirefoxDriver();
     baseUrl = "http://localhost:8080/";
     driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
