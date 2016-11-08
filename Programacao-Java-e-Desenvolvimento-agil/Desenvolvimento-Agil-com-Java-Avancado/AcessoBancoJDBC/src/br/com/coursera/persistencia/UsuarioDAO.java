@@ -22,20 +22,61 @@ public class UsuarioDAO implements IUsuarioDAO {
 
 	@Override
 	public void inserir(Usuario usuario) {
-		// TODO Auto-generated method stub
-
+		Connection c;
+		try {
+			c = DriverManager.getConnection("jdbc:mysql://localhost/coursera","root","vertrigo");
+			String sql = "INSERT INTO usuario(login, email, nome, senha, pontos) VALUES (?, ?, ?, ?, ?)";
+			PreparedStatement stm = c.prepareStatement(sql);
+			stm.setString(1, usuario.getLogin());
+			stm.setString(2, usuario.getEmail());
+			stm.setString(3, usuario.getNome());
+			stm.setString(4, usuario.getSenha());
+			stm.setInt(5, usuario.getPontos());
+			stm.executeUpdate();
+			c.close();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 	}
 
 	@Override
 	public Usuario recuperar(String login) {
-		// TODO Auto-generated method stub
-		return null;
+		Connection c;
+		Usuario u = null;
+		try {
+			c = DriverManager.getConnection("jdbc:mysql://localhost/coursera","root","vertrigo");
+			String sql = "SELECT * FROM usuario WHERE login = ?";
+			PreparedStatement stmt = c.prepareStatement(sql);
+			stmt.setString(1, login);
+			ResultSet rs = stmt.executeQuery();
+			while (rs.next()) {
+				u = new Usuario(rs.getString("login"), 
+						rs.getString("senha"), 
+						rs.getString("email"), 
+						rs.getString("nome"), 
+						rs.getInt("pontos"));
+			}
+			c.close();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return u;
 	}
 
 	@Override
 	public void adicionarPontos(String login, int pontos) {
-		// TODO Auto-generated method stub
-
+		Connection c;
+		try {
+			c = DriverManager.getConnection("jdbc:mysql://localhost/coursera","root","vertrigo");
+			String sql = "UPDATE usuario SET pontos = pontos + ? WHERE login = ?";
+			PreparedStatement stm = c.prepareStatement(sql);
+			stm.setInt(1, pontos);
+			stm.setString(2, login);
+			stm.executeUpdate();
+			c.close();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 	}
 
 	@Override
@@ -43,13 +84,12 @@ public class UsuarioDAO implements IUsuarioDAO {
 		List<Usuario> usuarios = new ArrayList<>();
 		Connection c;
 		try {
-			c = DriverManager.getConnection("jdbc:mysql://localhost/cousera","root","vertrigo");
+			c = DriverManager.getConnection("jdbc:mysql://localhost/coursera","root","vertrigo");
 			
 			String sql = "SELECT * FROM usuario ORDER BY pontos DESC";
 			
 			PreparedStatement stmt = c.prepareStatement(sql);
 			ResultSet rs = stmt.executeQuery();
-			System.out.println("Usuarios >>>>");
 			while (rs.next()) {
 				Usuario u = new Usuario(rs.getString("login"), 
 						rs.getString("senha"), 
@@ -58,7 +98,7 @@ public class UsuarioDAO implements IUsuarioDAO {
 						rs.getInt("pontos"));
 				usuarios.add(u);
 			}
-			System.out.println("FIM");
+			c.close();
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
