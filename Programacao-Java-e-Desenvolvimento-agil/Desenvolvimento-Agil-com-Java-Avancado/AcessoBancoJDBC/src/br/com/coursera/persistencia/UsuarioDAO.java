@@ -12,6 +12,11 @@ import br.com.coursera.dominio.Usuario;
 
 public class UsuarioDAO implements IUsuarioDAO {
 	
+//	private static String url = "jdbc:mysql://localhost/coursera";
+	private static String url = "jdbc:mysql://192.168.99.100:32769/coursera";
+	private static String user = "root";
+	private static String pass = "vertrigo";
+	
 	static {
         try {
             Class.forName("com.mysql.jdbc.Driver").newInstance();
@@ -24,14 +29,15 @@ public class UsuarioDAO implements IUsuarioDAO {
 	public void inserir(Usuario usuario) {
 		Connection c;
 		try {
-			c = DriverManager.getConnection("jdbc:mysql://localhost/coursera","root","vertrigo");
-			String sql = "INSERT INTO usuario(login, email, nome, senha, pontos) VALUES (?, ?, ?, ?, ?)";
+			c = DriverManager.getConnection(url,user,pass);
+			String sql = "INSERT INTO usuario(login, email, nome, senha, pontos, id) VALUES (?, ?, ?, ?, ?, ?)";
 			PreparedStatement stm = c.prepareStatement(sql);
 			stm.setString(1, usuario.getLogin());
 			stm.setString(2, usuario.getEmail());
 			stm.setString(3, usuario.getNome());
 			stm.setString(4, usuario.getSenha());
 			stm.setInt(5, usuario.getPontos());
+			stm.setInt(6, usuario.getId());
 			stm.executeUpdate();
 			c.close();
 		} catch (Exception e) {
@@ -44,7 +50,7 @@ public class UsuarioDAO implements IUsuarioDAO {
 		Connection c;
 		Usuario u = null;
 		try {
-			c = DriverManager.getConnection("jdbc:mysql://localhost/coursera","root","vertrigo");
+			c = DriverManager.getConnection(url,user,pass);
 			String sql = "SELECT * FROM usuario WHERE login = ?";
 			PreparedStatement stmt = c.prepareStatement(sql);
 			stmt.setString(1, login);
@@ -67,7 +73,7 @@ public class UsuarioDAO implements IUsuarioDAO {
 	public void adicionarPontos(String login, int pontos) {
 		Connection c;
 		try {
-			c = DriverManager.getConnection("jdbc:mysql://localhost/coursera","root","vertrigo");
+			c = DriverManager.getConnection(url,user,pass);
 			String sql = "UPDATE usuario SET pontos = pontos + ? WHERE login = ?";
 			PreparedStatement stm = c.prepareStatement(sql);
 			stm.setInt(1, pontos);
@@ -84,7 +90,7 @@ public class UsuarioDAO implements IUsuarioDAO {
 		List<Usuario> usuarios = new ArrayList<>();
 		Connection c;
 		try {
-			c = DriverManager.getConnection("jdbc:mysql://localhost/coursera","root","vertrigo");
+			c = DriverManager.getConnection(url,user,pass);
 			
 			String sql = "SELECT * FROM usuario ORDER BY pontos DESC";
 			

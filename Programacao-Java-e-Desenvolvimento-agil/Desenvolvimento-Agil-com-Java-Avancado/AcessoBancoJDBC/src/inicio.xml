@@ -1,5 +1,5 @@
 <dataset>
-	<usuario ID="1" LOGIN="eu" SENHA="123" EMAIL="eu@email.com" NOME="eu eu mesmo" PONTOS="0" />
-	<usuario ID="2" LOGIN="danilo" SENHA="123" EMAIL="dan@email.com" NOME="Danilo Soares" PONTOS="0" />
-	<usuario ID="3" LOGIN="jonh" SENHA="123" EMAIL="jjjjh@email.com" NOME="Jonh Smith" PONTOS="0" />
+	<usuario ID="1" LOGIN="eu" SENHA="123" EMAIL="eu@email.com" NOME="eu eu mesmo" PONTOS="5" />
+	<usuario ID="2" LOGIN="danilo" SENHA="123" EMAIL="dan@email.com" NOME="Danilo Soares" PONTOS="3" />
+	<usuario ID="3" LOGIN="jonh" SENHA="123" EMAIL="jjjjh@email.com" NOME="Jonh Smith" PONTOS="9" />
 </dataset>

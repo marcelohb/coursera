@@ -3,16 +3,16 @@
 	<classpathentry kind="src" path="test"/>
 	<classpathentry kind="src" path="src"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
-	<classpathentry kind="lib" path="/home/marcelo/Downloads/mysql-connector-java-5.1.40/mysql-connector-java-5.1.40-bin.jar"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.junit.JUNIT_CONTAINER/4"/>
-	<classpathentry kind="lib" path="/home/marcelo/Downloads/dependencias/cglib-nodep-2.2.2.jar"/>
-	<classpathentry kind="lib" path="/home/marcelo/Downloads/dependencias/dbunit-2.5.3.jar"/>
-	<classpathentry kind="lib" path="/home/marcelo/Downloads/dependencias/hamcrest-core-1.3.jar"/>
-	<classpathentry kind="lib" path="/home/marcelo/Downloads/dependencias/hamcrest-library-1.3.jar"/>
-	<classpathentry kind="lib" path="/home/marcelo/Downloads/dependencias/log4j.jar"/>
-	<classpathentry kind="lib" path="/home/marcelo/Downloads/dependencias/objenesis-2.1.jar"/>
-	<classpathentry kind="lib" path="/home/marcelo/Downloads/dependencias/postgresql-9.4.1210.jre6.jar"/>
-	<classpathentry kind="lib" path="/home/marcelo/Downloads/dependencias/slf4j.api-1.6.1.jar"/>
-	<classpathentry kind="lib" path="/home/marcelo/Downloads/dependencias/slf4j-log4j12-1.7.14.jar"/>
+	<classpathentry kind="lib" path="C:/wksCoursera/Java/Programacao-Java-e-Desenvolvimento-agil/Desenvolvimento-Agil-com-Java-Avancado/AcessoBancoJDBC/libs/cglib-nodep-2.2.2.jar"/>
+	<classpathentry kind="lib" path="C:/wksCoursera/Java/Programacao-Java-e-Desenvolvimento-agil/Desenvolvimento-Agil-com-Java-Avancado/AcessoBancoJDBC/libs/dbunit-2.5.3.jar"/>
+	<classpathentry kind="lib" path="C:/wksCoursera/Java/Programacao-Java-e-Desenvolvimento-agil/Desenvolvimento-Agil-com-Java-Avancado/AcessoBancoJDBC/libs/hamcrest-core-1.3.jar"/>
+	<classpathentry kind="lib" path="C:/wksCoursera/Java/Programacao-Java-e-Desenvolvimento-agil/Desenvolvimento-Agil-com-Java-Avancado/AcessoBancoJDBC/libs/hamcrest-library-1.3.jar"/>
+	<classpathentry kind="lib" path="C:/wksCoursera/Java/Programacao-Java-e-Desenvolvimento-agil/Desenvolvimento-Agil-com-Java-Avancado/AcessoBancoJDBC/libs/log4j.jar"/>
+	<classpathentry kind="lib" path="C:/wksCoursera/Java/Programacao-Java-e-Desenvolvimento-agil/Desenvolvimento-Agil-com-Java-Avancado/AcessoBancoJDBC/libs/objenesis-2.1.jar"/>
+	<classpathentry kind="lib" path="C:/wksCoursera/Java/Programacao-Java-e-Desenvolvimento-agil/Desenvolvimento-Agil-com-Java-Avancado/AcessoBancoJDBC/libs/postgresql-9.4.1210.jre6.jar"/>
+	<classpathentry kind="lib" path="C:/wksCoursera/Java/Programacao-Java-e-Desenvolvimento-agil/Desenvolvimento-Agil-com-Java-Avancado/AcessoBancoJDBC/libs/slf4j.api-1.6.1.jar"/>
+	<classpathentry kind="lib" path="C:/wksCoursera/Java/Programacao-Java-e-Desenvolvimento-agil/Desenvolvimento-Agil-com-Java-Avancado/AcessoBancoJDBC/libs/slf4j-log4j12-1.7.14.jar"/>
+	<classpathentry kind="lib" path="C:/wksCoursera/Java/Programacao-Java-e-Desenvolvimento-agil/Desenvolvimento-Agil-com-Java-Avancado/AcessoBancoJDBC/libs/mysql-connector-java-5.1.40-bin.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
