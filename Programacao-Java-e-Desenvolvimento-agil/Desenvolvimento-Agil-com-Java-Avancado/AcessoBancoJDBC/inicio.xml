@@ -1,0 +1,5 @@
+<dataset>
+	<usuario LOGIN="eu" EMAIL="eu@email.com" NOME="eu eu mesmo" />
+	<usuario LOGIN="danilo" EMAIL="dan@email.com" NOME="Danilo Soares" />
+	<usuario LOGIN="jonh" EMAIL="jjjjh@email.com" NOME="Jonh Smith" />
+</dataset>
