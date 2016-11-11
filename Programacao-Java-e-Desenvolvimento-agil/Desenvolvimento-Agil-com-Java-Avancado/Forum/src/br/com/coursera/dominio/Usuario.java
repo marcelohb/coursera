@@ -1,8 +1,7 @@
-package br.com.coursera;
+package br.com.coursera.dominio;
 
 public class Usuario {
 	
-	private int id;
 	private String login;
 	private String email;
 	private String nome;
@@ -15,14 +14,6 @@ public class Usuario {
 		this.email = email;
 		this.nome = nome;
 		this.pontos = pontos;
-	}
-
-	public int getId() {
-		return id;
-	}
-
-	public void setId(int id) {
-		this.id = id;
 	}
 
 	public String getLogin() {
