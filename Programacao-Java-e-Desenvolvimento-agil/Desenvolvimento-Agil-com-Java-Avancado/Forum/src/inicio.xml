@@ -2,4 +2,5 @@
 	<usuario LOGIN="eu" SENHA="*****" EMAIL="eu@email.com" NOME="Eu Eu Mesmo" PONTOS="0" />
 	<usuario LOGIN="danilo" SENHA="*****" EMAIL="dan@email.com" NOME="Danilo Soares" PONTOS="0" />
 	<usuario LOGIN="jonh" SENHA="*****" EMAIL="jjjjh@email.com" NOME="Jonh Smith" PONTOS="0" />
+	<topico></topico>
 </dataset>

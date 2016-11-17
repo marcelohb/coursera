@@ -7,4 +7,6 @@ public interface ITopicoDao {
 	int inserir(Topico topico);
 	
 	int inserir(String titulo, String usuario);
+	
+	void registrarPontos(String login);
 }

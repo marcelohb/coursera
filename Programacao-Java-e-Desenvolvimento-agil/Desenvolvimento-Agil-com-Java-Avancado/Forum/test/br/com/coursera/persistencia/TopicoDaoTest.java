@@ -2,31 +2,21 @@ package br.com.coursera.persistencia;
 
 import static org.junit.Assert.assertEquals;
 
-import org.dbunit.JdbcDatabaseTester;
-import org.dbunit.util.fileloader.FlatXmlDataFileLoader;
 import org.junit.Before;
 import org.junit.Test;
 
+import br.com.coursera.AbstractTest;
 import br.com.coursera.dominio.Topico;
+import br.com.coursera.dominio.Usuario;
 
-public class TopicoDaoTest {
+public class TopicoDaoTest extends AbstractTest {
 	
 	private TopicoDao dao;
-	private Conexao conexao;
-	private JdbcDatabaseTester jd;
-	private static String url = "jdbc:postgresql://192.168.99.100:9950/coursera";
-	private static String driver = "org.postgresql.Driver";
-	private static String user = "root";
-	private static String pass = "vertrigo";
 	
 	@Before
 	public void setUp() throws Exception {
-		conexao = new Conexao();
+		super.setUp();
 		dao = new TopicoDao(conexao);
-		jd = new JdbcDatabaseTester(driver,url,user,pass);
-		FlatXmlDataFileLoader loader = new FlatXmlDataFileLoader();
-		jd.setDataSet(loader.load("/inicio.xml"));
-		jd.onSetup();
 	}
 
 	@Test
@@ -37,14 +27,27 @@ public class TopicoDaoTest {
 	
 	@Test
 	public void inserirTopicoCompleto() {
-		Topico topico = new Topico("Topico 2", "danilo");
+		Topico topico = new Topico("Topico 2", "jonh");
 		topico.setConteudo("Conteudo do topico 2");
 		assertEquals(1, dao.inserir(topico));
 	}
 	
+	@Test
+	public void registrarPontosDoTopico() {
+		String login = "jonh";
+		Topico topico = new Topico("Topico 2", login);
+		topico.setConteudo("Conteudo do topico 2");
+		assertEquals(1, dao.inserir(topico));
+		dao.registrarPontos(login);
+		UsuarioDao daoUsuario = new UsuarioDao(conexao);
+		Usuario u = daoUsuario.recuperar(login);
+		assertEquals(10, u.getPontos());
+	}
+	
 	@Test(expected=IllegalArgumentException.class)
 	public void inserirTopicoComUsuarioQueNaoExiste() {
-		// TODO fazer um verificação antes se o usuario existe ou tratar a exception de FK
+		Topico topico = new Topico("Tópico 1", "xx");
+		dao.inserir(topico);
 		// TODO criar exceção propria
 	}
 

@@ -6,33 +6,23 @@ import java.sql.SQLException;
 import java.util.List;
 
 import org.dbunit.Assertion;
-import org.dbunit.JdbcDatabaseTester;
 import org.dbunit.dataset.IDataSet;
 import org.dbunit.dataset.ITable;
 import org.dbunit.util.fileloader.FlatXmlDataFileLoader;
 import org.junit.Before;
 import org.junit.Test;
 
+import br.com.coursera.AbstractTest;
 import br.com.coursera.dominio.Usuario;
 
-public class UsuarioDaoTest {
+public class UsuarioDaoTest extends AbstractTest {
 	
 	private UsuarioDao dao;
-	private Conexao conexao;
-	private JdbcDatabaseTester jd;
-	private static String url = "jdbc:postgresql://192.168.99.100:9950/coursera";
-	private static String driver = "org.postgresql.Driver";
-	private static String user = "root";
-	private static String pass = "vertrigo";
 	
 	@Before
 	public void setUp() throws Exception {
-		conexao = new Conexao();
+		super.setUp();
 		dao = new UsuarioDao(conexao);
-		jd = new JdbcDatabaseTester(driver,url,user,pass);
-		FlatXmlDataFileLoader loader = new FlatXmlDataFileLoader();
-		jd.setDataSet(loader.load("/inicio.xml"));
-		jd.onSetup();
 	}
 
 	@Test
