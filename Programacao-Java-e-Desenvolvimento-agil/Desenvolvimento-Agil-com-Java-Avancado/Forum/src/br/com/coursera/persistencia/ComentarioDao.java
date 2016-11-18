@@ -55,8 +55,18 @@ public class ComentarioDao implements IComendarioDao {
 
 	@Override
 	public void registrarPontos(String usuario, int pontos) {
-		// TODO Auto-generated method stub
-
+		try {
+			String sql = "UPDATE usuario SET pontos = pontos + ? WHERE login = ?";
+			PreparedStatement stm = c.conectar().prepareStatement(sql);
+			stm.setInt(1, pontos);
+			stm.setString(2, usuario);
+			stm.executeUpdate();
+			c.fechar();
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			c.fechar();
+		}
 	}
 
 	@Override
