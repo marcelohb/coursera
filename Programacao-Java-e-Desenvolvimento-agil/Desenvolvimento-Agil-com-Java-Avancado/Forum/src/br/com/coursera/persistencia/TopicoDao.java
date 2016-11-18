@@ -1,6 +1,10 @@
 package br.com.coursera.persistencia;
 
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 import org.postgresql.util.PSQLException;
 
@@ -46,6 +50,71 @@ public class TopicoDao implements ITopicoDao {
 	public void registrarPontos(String login) {
 		UsuarioDao daoUsuario = new UsuarioDao(c);
 		daoUsuario.adicionarPontos(login, 10);
+	}
+
+	@Override
+	public List<Topico> listarTopicos() {
+		List<Topico> topicos = new ArrayList<>();
+		try {
+			String sql = "SELECT * FROM topico";
+			
+			PreparedStatement stmt = c.conectar().prepareStatement(sql);
+			ResultSet rs = stmt.executeQuery();
+			while (rs.next()) {
+				Topico t = new Topico(rs.getString("titulo"), rs.getString("login"));
+				t.setId(rs.getInt("id_topico"));
+				t.setConteudo(rs.getString("conteudo"));
+				topicos.add(t);
+			}
+			c.fechar();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			c.fechar();
+		}
+		return topicos;
+	}
+
+	@Override
+	public List<Topico> listarTopicosDoUsuario(String login) {
+		List<Topico> topicos = new ArrayList<>();
+		try {
+			String sql = "SELECT * FROM topico WHERE login = ?";
+			
+			PreparedStatement stmt = c.conectar().prepareStatement(sql);
+			stmt.setString(1, login);
+			ResultSet rs = stmt.executeQuery();
+			while (rs.next()) {
+				Topico t = new Topico(rs.getString("titulo"), rs.getString("login"));
+				t.setId(rs.getInt("id_topico"));
+				t.setConteudo(rs.getString("conteudo"));
+				topicos.add(t);
+			}
+			c.fechar();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			c.fechar();
+		}
+		return topicos;
+	}
+
+	@Override
+	public int removerTopico(int idTopico) {
+		int retorno = 0;
+		try {
+			String sql = "DELETE FROM topico WHERE id_topico = ?";
+			
+			PreparedStatement stmt = c.conectar().prepareStatement(sql);
+			stmt.setInt(1, idTopico);
+			retorno = stmt.executeUpdate();
+			c.fechar();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			c.fechar();
+		}
+		return retorno;
 	}
 
 }

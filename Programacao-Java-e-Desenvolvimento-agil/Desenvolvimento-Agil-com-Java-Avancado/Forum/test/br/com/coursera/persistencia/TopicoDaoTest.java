@@ -21,7 +21,7 @@ public class TopicoDaoTest extends AbstractTest {
 
 	@Test
 	public void inserirApenasTitulo() {
-		Topico topico = new Topico("Tópico 1", "eu");
+		Topico topico = new Topico("Topico 1", "eu");
 		assertEquals(1, dao.inserir(topico));
 	}
 	
@@ -46,9 +46,9 @@ public class TopicoDaoTest extends AbstractTest {
 	
 	@Test(expected=IllegalArgumentException.class)
 	public void inserirTopicoComUsuarioQueNaoExiste() {
-		Topico topico = new Topico("Tópico 1", "xx");
+		Topico topico = new Topico("Topico 1", "xx");
 		dao.inserir(topico);
-		// TODO criar exceção propria
+		// TODO criar excecao propria
 	}
 
 }
