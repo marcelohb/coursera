@@ -10,7 +10,7 @@ public interface IComendarioDao {
 	
 	public int inserir(String comentario, String login, int idTopico);
 	
-	public void registrarPontos(String usuario, int pontos);
+	public void registrarPontos(String usuario);
 	
 	public List<Comentario> listarComentarios();
 	

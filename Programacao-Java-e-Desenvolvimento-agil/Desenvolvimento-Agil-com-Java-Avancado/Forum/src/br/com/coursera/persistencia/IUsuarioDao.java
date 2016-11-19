@@ -10,6 +10,8 @@ public interface IUsuarioDao {
 	
 	public Usuario recuperar(String login);
 	
+	public Usuario autenticar(String usuario, String senha);
+	
 	public int adicionarPontos(String login, int pontos);
 	
 	public List<Usuario> ranking();

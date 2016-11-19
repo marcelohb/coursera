@@ -104,4 +104,29 @@ public class UsuarioDao implements IUsuarioDao {
 		return usuarios;
 	}
 
+	@Override
+	public Usuario autenticar(String usuario, String senha) {
+		Usuario u = null;
+		try {
+			String sql = "SELECT * FROM usuario WHERE login = ? AND senha = ?";
+			PreparedStatement stmt = c.conectar().prepareStatement(sql);
+			stmt.setString(1, usuario);
+			stmt.setString(2, senha);
+			ResultSet rs = stmt.executeQuery();
+			while (rs.next()) {
+				u = new Usuario(rs.getString("login"), 
+						rs.getString("senha"), 
+						rs.getString("email"), 
+						rs.getString("nome"), 
+						rs.getInt("pontos"));
+			}
+			c.fechar();
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			c.fechar();
+		}
+		return u;
+	}
+
 }

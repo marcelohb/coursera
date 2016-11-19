@@ -69,5 +69,13 @@ public class UsuarioDaoTest extends AbstractTest {
 		assertEquals("eu", ranking.get(1).getLogin());
 		assertEquals("danilo", ranking.get(2).getLogin());
 	}
+	
+	@Test
+	public void autenticar() {
+		Usuario u = dao.autenticar("eu","*****");
+		if (u==null)
+			System.out.println("nulo");
+		assertEquals("Eu Eu Mesmo", u.getNome());
+	}
 
 }

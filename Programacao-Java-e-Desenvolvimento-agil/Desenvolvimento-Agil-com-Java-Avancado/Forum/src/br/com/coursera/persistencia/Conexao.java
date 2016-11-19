@@ -9,9 +9,11 @@ public class Conexao {
 	
 	private Connection c;
 	// LOCALHOST
-//	private static String url = "jdbc:postgresql://localhost/coursera";
-	// DOCKER
-	private static String url = "jdbc:postgresql://192.168.99.100:9950/coursera";
+//	public static String url = "jdbc:postgresql://localhost/coursera";
+	// DOCKER HDR
+//	public static String url = "jdbc:postgresql://192.168.99.100:9950/coursera";
+	// DOCKER MINE
+	public static String url = "jdbc:postgresql://172.17.0.2:5432/coursera";
 	private Properties props;
 	
 	static {

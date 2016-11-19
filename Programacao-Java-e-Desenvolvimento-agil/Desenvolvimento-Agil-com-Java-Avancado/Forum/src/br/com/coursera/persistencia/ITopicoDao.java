@@ -17,4 +17,6 @@ public interface ITopicoDao {
 	public List<Topico> listarTopicosDoUsuario(String login);
 	
 	public int removerTopico(int idTopico);
+	
+	public Topico buscarTopicoPorId(int id);
 }

@@ -10,7 +10,7 @@ public class AbstractTest {
 	
 	protected Conexao conexao;
 	protected JdbcDatabaseTester jd;
-	private static String url = "jdbc:postgresql://192.168.99.100:9950/coursera";
+	private static String url = Conexao.url;
 	private static String driver = "org.postgresql.Driver";
 	private static String user = "root";
 	private static String pass = "vertrigo";

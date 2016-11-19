@@ -117,4 +117,27 @@ public class TopicoDao implements ITopicoDao {
 		return retorno;
 	}
 
+	@Override
+	public Topico buscarTopicoPorId(int id) {
+		Topico topico = null;
+		try {
+			String sql = "SELECT * FROM topico WHERE id_topico = ?";
+			
+			PreparedStatement stmt = c.conectar().prepareStatement(sql);
+			stmt.setInt(1, id);
+			ResultSet rs = stmt.executeQuery();
+			while (rs.next()) {
+				topico = new Topico(rs.getString("titulo"), rs.getString("login"));
+				topico.setId(rs.getInt("id_topico"));
+				topico.setConteudo(rs.getString("conteudo"));
+			}
+			c.fechar();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			c.fechar();
+		}
+		return topico;
+	}
+
 }
