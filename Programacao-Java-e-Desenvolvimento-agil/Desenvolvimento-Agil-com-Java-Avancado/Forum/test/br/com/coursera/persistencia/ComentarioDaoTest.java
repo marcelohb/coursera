@@ -35,7 +35,7 @@ public class ComentarioDaoTest extends AbstractTest {
 	public void inserirComentarioERegistrarPonto() throws SQLException, Exception {
 		Comentario comentario = new Comentario(1, "Comentario 1", "eu");
 		assertEquals(1, dao.inserir(comentario));
-		dao.registrarPontos("eu", 3);
+		dao.registrarPontos("eu");
 		
 		DefaultColumnFilter columnExcluded = new DefaultColumnFilter();
 		columnExcluded.excludeColumn("ID_*");

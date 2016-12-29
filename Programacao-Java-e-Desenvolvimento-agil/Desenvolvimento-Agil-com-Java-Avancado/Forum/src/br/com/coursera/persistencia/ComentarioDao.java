@@ -54,19 +54,9 @@ public class ComentarioDao implements IComendarioDao {
 	}
 
 	@Override
-	public void registrarPontos(String usuario, int pontos) {
-		try {
-			String sql = "UPDATE usuario SET pontos = pontos + ? WHERE login = ?";
-			PreparedStatement stm = c.conectar().prepareStatement(sql);
-			stm.setInt(1, pontos);
-			stm.setString(2, usuario);
-			stm.executeUpdate();
-			c.fechar();
-		} catch (Exception e) {
-			e.printStackTrace();
-		} finally {
-			c.fechar();
-		}
+	public void registrarPontos(String usuario) {
+		UsuarioDao dao = new UsuarioDao(new Conexao());
+		dao.adicionarPontos(usuario, 3);
 	}
 
 	@Override
