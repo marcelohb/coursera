@@ -5,22 +5,37 @@ import java.util.List;
 import java.util.NoSuchElementException;
 import java.util.Optional;
 
+import br.com.coursera.dominio.Estilo;
+import br.com.coursera.dominio.Livro;
 import br.com.coursera.dominio.Usuario;
 
 public class Aplicacao {
 	
 	public static List<Usuario> usuarios = new ArrayList<>();
+	public static List<Livro> livros = new ArrayList<>();
 
 	public static List<Usuario> listaDeUsuarios() {
 		return usuarios;
+	}
+	
+	public static List<Livro> listaDeLivros() {
+		return livros;
 	}
 	
 	public static void adicionarUsuario(Usuario u) {
 		usuarios.add(u);
 	}
 	
+	public static void adicionarLivro(Livro l) {
+		livros.add(l);
+	}
+	
 	public static void limparUsuarios() {
 		usuarios.clear();
+	}
+	
+	public static void limparLivros() {
+		livros.clear();
 	}
 	
 	public static void carregarUsuarios() {
@@ -34,6 +49,16 @@ public class Aplicacao {
 		usuarios.add(new Usuario("pati", "123", "Patricia"));
 		usuarios.add(new Usuario("tata", "123", "Tamires"));
 		usuarios.add(new Usuario("gabi", "123", "Gabriela"));
+	}
+	
+	public static void carregarLivros() {
+		livros.add(new Livro("Titulo 1", "Autor 1", Estilo.DRAMA, 123));
+		livros.add(new Livro("Titulo 2", "Autor 1", Estilo.FICCAO_CIENTIFICA, 23));
+		livros.add(new Livro("Titulo 3", "Autor 2", Estilo.RELIGIOSO, 222));
+		livros.add(new Livro("Titulo 4", "Autor 1", Estilo.TERROR, 201));
+		livros.add(new Livro("Titulo 5", "Autor 4", Estilo.RELIGIOSO, 99));
+		livros.add(new Livro("Titulo 6", "Autor 2", Estilo.RELIGIOSO, 101));
+		livros.add(new Livro("Titulo 7", "Autor 5", Estilo.DRAMA, 151));
 	}
 
 	public static Usuario login(String login, String senha) {
