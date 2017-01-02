@@ -52,13 +52,19 @@ public class Aplicacao {
 	}
 	
 	public static void carregarLivros() {
-		livros.add(new Livro("Titulo 1", "Autor 1", Estilo.DRAMA, 123));
-		livros.add(new Livro("Titulo 2", "Autor 1", Estilo.FICCAO_CIENTIFICA, 23));
-		livros.add(new Livro("Titulo 3", "Autor 2", Estilo.RELIGIOSO, 222));
-		livros.add(new Livro("Titulo 4", "Autor 1", Estilo.TERROR, 201));
-		livros.add(new Livro("Titulo 5", "Autor 4", Estilo.RELIGIOSO, 99));
-		livros.add(new Livro("Titulo 6", "Autor 2", Estilo.RELIGIOSO, 101));
-		livros.add(new Livro("Titulo 7", "Autor 5", Estilo.DRAMA, 151));
+		livros.add(new Livro(1,"Titulo 1", "Autor 1", Estilo.DRAMA, 123));
+		livros.add(new Livro(2,"Titulo 2", "Autor 1", Estilo.FICCAO_CIENTIFICA, 23));
+		livros.add(new Livro(3,"Titulo 3", "Autor 2", Estilo.RELIGIOSO, 222));
+		livros.add(new Livro(4,"Titulo 4", "Autor 1", Estilo.TERROR, 201));
+		livros.add(new Livro(5,"Titulo 5", "Autor 4", Estilo.RELIGIOSO, 99));
+		livros.add(new Livro(6,"Titulo 6", "Autor 2", Estilo.RELIGIOSO, 101));
+		livros.add(new Livro(7,"Titulo 7", "Autor 5", Estilo.DRAMA, 151));
+	}
+	
+	public static int quantidadeDeLivros() {
+		if (livros == null)
+			return 0;
+		return livros.size();
 	}
 
 	public static Usuario login(String login, String senha) {

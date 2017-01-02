@@ -14,20 +14,20 @@ public class LivroTest {
 	
 	@Before
 	public void setUp() {
-		livro = new Livro("Primeiro Livro", "Autor", Estilo.DRAMA, 123);
+		livro = new Livro(1, "Primeiro Livro", "Autor", Estilo.DRAMA, 123);
 		Aplicacao.carregarLivros();
 	}
 
 	@Test
 	public void livrosIguais() {
-		Livro l2 = new Livro("Primeiro Livro", "Autor", Estilo.DRAMA, 123);
+		Livro l2 = new Livro(1, "Primeiro Livro", "Autor", Estilo.DRAMA, 123);
 		assertEquals(l2, livro);
 		assertEquals(Double.valueOf(0.0), l2.getPontosDeLeitura());
 	}
 	
 	@Test
 	public void livrosDiferentes() {
-		Livro l2 = new Livro("Primeiro Livro", "Autor", Estilo.FICCAO_CIENTIFICA, 123);
+		Livro l2 = new Livro(1, "Primeiro Livro", "Autor", Estilo.FICCAO_CIENTIFICA, 123);
 		assertNotEquals(l2, livro);
 		assertEquals(Double.valueOf(0.0), l2.getPontosDeLeitura());
 	}

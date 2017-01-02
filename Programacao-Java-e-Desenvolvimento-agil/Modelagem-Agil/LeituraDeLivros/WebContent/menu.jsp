@@ -9,9 +9,9 @@
 <body>
 	<p>Ola ${usuario.getNome()}</p>
 	<ul>
-		<li><a href="" ></a></li>
-		<li><a href="" ></a></li>
-		<li><a href="" ></a></li>
+		<li><a href="livros.jsp">Livros</a></li>
+		<li><a href="leitores.jsp">Leitores</a></li>
+		<li><a href="ranking.jsp">Ranking</a></li>
 	</ul>
 </body>
 </html>
