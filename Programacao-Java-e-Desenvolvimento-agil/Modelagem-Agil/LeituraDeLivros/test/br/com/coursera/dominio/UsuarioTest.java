@@ -8,11 +8,11 @@ import br.com.coursera.aplicacao.Aplicacao;
 
 public class UsuarioTest {
 	
-	private Usuario u = new Usuario("eu","123","Euzequiel"); 
+	private Usuario u = new Usuario(1,"eu","123","Euzequiel"); 
 
 	@Test
 	public void compararUsuario() {
-		Usuario u2 = new Usuario("eu","123","Euzequiel");
+		Usuario u2 = new Usuario(1,"eu","123","Euzequiel");
 		assertEquals(u, u2);
 	}
 	

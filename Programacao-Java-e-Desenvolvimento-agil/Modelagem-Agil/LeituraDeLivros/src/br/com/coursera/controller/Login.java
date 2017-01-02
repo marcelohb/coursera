@@ -1,6 +1,7 @@
 package br.com.coursera.controller;
 
 import java.io.IOException;
+import java.util.List;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -9,6 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import br.com.coursera.aplicacao.Aplicacao;
+import br.com.coursera.dominio.Livro;
 import br.com.coursera.dominio.Usuario;
 
 @WebServlet(name = "login", description = "Validar usuario da aplicacao", urlPatterns = { "/login" })
@@ -17,6 +19,7 @@ public class Login extends HttpServlet {
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		Usuario usuarioLogado;
+		Aplicacao.limparUsuarios();
 		Aplicacao.carregarUsuarios();
 		
 		String usuario = request.getParameter("usuario");
@@ -35,7 +38,13 @@ public class Login extends HttpServlet {
 			return;
 		}
 		request.getSession().setAttribute("usuario", usuarioLogado);
-		request.getRequestDispatcher("menu.jsp").forward(request, response);
+//		request.getRequestDispatcher("menu.jsp").forward(request, response);
+		Aplicacao.limparLivros();
+		Aplicacao.carregarLivros();
+		List<Livro> livros = Aplicacao.listaDeLivros();
+		request.setAttribute("quantidadeDeLivros", Aplicacao.quantidadeDeLivros());
+		request.setAttribute("livros", livros);
+		request.getRequestDispatcher("livros.jsp").forward(request, response);
 	}
 
 }
