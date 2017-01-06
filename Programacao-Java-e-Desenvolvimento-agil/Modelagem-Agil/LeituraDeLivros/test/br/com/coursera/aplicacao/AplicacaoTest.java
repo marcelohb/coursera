@@ -28,7 +28,9 @@ public class AplicacaoTest {
 	@Test
 	public void registrarLeituraDeLivro() {
 		Aplicacao.usuarioLeuLivro(1,1);
-		assertEquals(1, Aplicacao.listaDeLivrosLidos(1));
+		Aplicacao.usuarioLeuLivro(2,2);
+		Aplicacao.usuarioLeuLivro(2,1);
+		assertEquals(1, Aplicacao.listaDeLivrosLidos(1).size());
 	}
 
 }
