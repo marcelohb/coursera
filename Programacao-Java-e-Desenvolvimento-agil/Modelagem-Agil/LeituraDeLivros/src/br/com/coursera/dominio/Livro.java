@@ -8,6 +8,7 @@ public class Livro {
 	private Estilo estilo;
 	private int paginas;
 	private Double pontosDeLeitura;
+	private boolean lido;
 
 	public Livro(int id, String titulo, String autor, Estilo estilo, int paginas) {
 		this.id = id;
@@ -64,6 +65,29 @@ public class Livro {
 	
 	public void setPontosDeLeitura(Double pontosDeLeitura) {
 		this.pontosDeLeitura = pontosDeLeitura;
+	}
+	
+	public boolean lido() {
+		return lido;
+	}
+	
+	public void foiLido(boolean lido) {
+		this.lido = lido;
+	}
+	
+	public String checked() {
+		return (lido ? "checked=checked" : "");
+	}
+	
+	@Override
+	public String toString() {
+		return "Livro [id:" + getId() + 
+				",titulo:" + getTitulo() + 
+				",autor:" + getAutor() + 
+				",estilo:" + getEstilo() + 
+				",paginas:" + getPaginas() +
+				",pontos:" + getPontosDeLeitura() + 
+				",lido:" + lido() + "]";
 	}
 
 	@Override

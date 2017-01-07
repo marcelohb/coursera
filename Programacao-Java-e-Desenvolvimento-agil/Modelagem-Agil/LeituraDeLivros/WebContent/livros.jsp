@@ -11,10 +11,14 @@
 	<p>Ola ${usuario.getNome()}</p>
 	<h1>Livros</h1>
 	<p><a href="menu.jsp">Menu</a></p>
-	<c:forEach var="livro" items="${livros}">
-		<li>
-			 - <a href="exibeLivro?id=${livro.id}">${livro.titulo} - ${livro.estilo}</a>
-		 </li>
-	</c:forEach>
+	<form action="registrarLeitura" method="post">
+		<c:forEach var="livro" items="${livros}">
+			<li>
+				<input type="checkbox" name="livrosLidos" ${livro.checked()} value="${livro.id}">
+				 - <a href="exibeLivro?id=${livro.id}">${livro.titulo} - ${livro.estilo}</a>
+			 </li>
+		</c:forEach>
+		<input type="submit" value="Salvar" />
+	</form>
 </body>
 </html>

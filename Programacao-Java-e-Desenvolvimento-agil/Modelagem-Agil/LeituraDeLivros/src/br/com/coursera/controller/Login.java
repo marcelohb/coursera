@@ -41,7 +41,7 @@ public class Login extends HttpServlet {
 //		request.getRequestDispatcher("menu.jsp").forward(request, response);
 		Aplicacao.limparLivros();
 		Aplicacao.carregarLivros();
-		List<Livro> livros = Aplicacao.listaDeLivros();
+		List<Livro> livros = Aplicacao.listaDeLivrosLidos(usuarioLogado.getId());
 		request.setAttribute("quantidadeDeLivros", Aplicacao.quantidadeDeLivros());
 		request.setAttribute("livros", livros);
 		request.getRequestDispatcher("livros.jsp").forward(request, response);

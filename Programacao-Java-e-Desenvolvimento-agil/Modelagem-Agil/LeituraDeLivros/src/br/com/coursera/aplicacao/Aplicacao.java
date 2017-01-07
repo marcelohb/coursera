@@ -4,7 +4,6 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.NoSuchElementException;
 import java.util.Optional;
-import java.util.stream.Collectors;
 
 import br.com.coursera.dominio.Estilo;
 import br.com.coursera.dominio.Livro;
@@ -87,9 +86,18 @@ public class Aplicacao {
 		livrosDoUsuario.add(livroLido);
 	}
 
-	public static List<LivroUsuario> listaDeLivrosLidos(int idUsuario) {
-		List<LivroUsuario> livrosLidosDoUsuario = livrosDoUsuario.stream().filter(l -> idUsuario == l.getIdUsuario()).collect(Collectors.toList());
-		return livrosLidosDoUsuario;
+	public static List<Livro> listaDeLivrosLidos(int idUsuario) {
+		List<Livro> livrosLidos = new ArrayList<>();
+		for (Livro l : livros) {
+			LivroUsuario lu = new LivroUsuario(idUsuario, l.getId());
+			l.foiLido(livrosDoUsuario.contains(lu));
+//			livrosDoUsuario.forEach(
+//				livroUsuario -> {
+//					if (livroUsuario.getIdUsuario() == idUsuario && livroUsuario.getIdLivro() == l.getId())
+//						l.foiLido(true);
+//				});
+			livrosLidos.add(l);
+		}
+		return livrosLidos;
 	}
-
 }
